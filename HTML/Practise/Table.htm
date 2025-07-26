@@ -1,0 +1,60 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<body>
+    <style>
+        tr,
+        table,
+        th,
+        td {
+          border: 2px solid black;  
+          border-collapse: collapse;
+        }
+        th,
+        td {
+            padding: 2px;
+        }
+        th{
+            text-align: left;
+        }
+        table{
+            border-spacing: 20px;
+            background-color: blue;
+        }
+    </style>
+    <table style="width: 100%;">
+        <caption>DETAILS Tables</caption>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Age</th>
+            <th colspan="2">Telephone</th>
+        </tr>
+        <tr>
+            <td>Priya</td>
+            <td>Sharma</td>
+            <td>24</td>
+            <td>9125577854</td>
+            <td>8565557785</td>
+            <th rowspan="2">Work</th>
+            <td>amazon</td>
+            <td>amazon</td>
+            
+        </tr>
+        <tr>
+            <td>Arun</td>
+            <td>Singh</td>
+            <td>32</td>
+            <td>9125577854</td>
+            <td>8565557785</td>
+        </tr>
+        <tr>
+            <td>Sam</td>
+            <td>Watson</td>
+            <td>41</td>
+            <td>9125577854</td>
+            <td>8565557785</td>
+        </tr>
+    </table>
+</body>
+</html>
