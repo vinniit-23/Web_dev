@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <link rel="stylesheet" href="css/bootstrap.min.css">
+     <style>
+        .search{
+            margin-left: 90px;
+            display: flex;
+            justify-content:center ;
+        }
+     </style>
+</head>
+<body>
+    <header class="bg-primary fs-6 mb-0">
+        <div class="container">
+             <h1 class=" text-light text-center p-4 mb-0">Job Search Portal </h1>
+        </div>
+    </header>
+
+<nav class="navbar navbar-expand justify-content-center bg-dark ">
+            <ul class="nav">
+              <li class="nav-item">
+                <a href="#home" class="nav-link">Home</a>
+              </li>
+                <li class="nav-item">
+                <a href="#Jobs"  class="nav-link">Jobs</a>
+              </li>
+                <li class="nav-item">
+                <a href="#Companies" class="nav-link" >Companies</a>
+              </li>
+                <li class="nav-item">
+                <a href="#About_Us"  class="nav-link">About us</a>
+              </li>
+              <li class="nav-item">
+                <a href="#Contact" class="nav-link" >Contact</a>
+              </li>
+            </ul>
+    </nav>
+    <section class="my-5">
+     <div class=" container-fluid">
+        <h2 class="text-center mb-4">Find Your Dream Job</h2>
+        <form action="#" method="get">
+            <div class=" search row">
+                <div class="col-md-3 mb-2">
+                    <input type="text" placeholder="Keywords" name="Keywords" class="form-control">
+                </div>
+                <div class="col-md-3 mb-2">
+                    <input type="text" placeholder="location" name="location" class="form-control">
+                </div>
+                <div class="col-md-3 mb-2">
+                    <input type="text" placeholder="company" name="company" class="form-control">
+                </div>
+                <div class="col-md-2 mb-2">
+                    <button type="submit" class="btn btn-block btn-primary">Search</button>
+                </div>
+            </div>
+        </form>
+     </div>
+    </section>
+    <section class="container-fluid">
+       <h2 class="text-center mb-4">Latest Job Listings</h2>
+       <div class="row mt-5 justify-content-center">
+        <div class="card col-md-5 mb-4 me-4">
+            <div class="card-body">
+                <div class="card-title fw-bold fs-4 mb-2">Web Developer</div>
+                <p>Company: GfG</p>
+                <p>Location: India</p>
+                <p>Description: Good Web Developer</p>
+                <button href="#" class="btn btn-primary">Apply Now</button>
+            </div>
+            </div>
+            <div class="card col-md-5 mb-4">
+            <div class="card-body">
+                <div class="card-title fw-bold fs-4 mb-2">Graphic Designer</div>
+                <p>Company: GfG</p>
+                <p>Location: India</p>
+                <p>Description: Good Graphic Designer</p>
+                <button href="#" class="btn btn-primary">Apply Now</button>
+        </div>
+        </div>
+       </div>
+    </section>
+    <footer class="bg-dark text-light text-center mb-0 py-3">
+        © 2023 Job Search Portal
+    </footer>
+</body>
+</html>
