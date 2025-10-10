@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=, initial-scale=1.0" />
+    <title>login page</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: #a4adb3;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .cards {
+        background-color: #4a66b4;
+        border-radius: 10px;
+        padding: 30px;
+        width: 500px;
+      }
+      h2 {
+        color: #000b6b;
+        text-align: center;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        padding: 4px;
+      }
+      input {
+        padding: 5px;
+        border-radius: 3px;
+        border: none;
+        margin-bottom: 10px;
+      }
+      .login {
+        margin: 10px 0;
+        color: #4a66b4;
+        background-color: #000b6b;
+        text-align: center;
+      }
+      .login:hover {
+        background-color: #181f61;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="cards">
+      <form>
+        <h2>Login Form</h2>
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          required
+          placeholder="username"
+        />
+        <label for="password">Password:</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          required
+          placeholder="password"
+        />
+        <input type="submit" value="Login" class="login" />
+      </form>
+    </div>
+  </body>
+</html>
