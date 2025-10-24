@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>card html</title>
+
+    <style>
+        html{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+          background-color: #f98f75;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .card{
+            /* display: flex; */
+             height: 450px;
+             width: 350px;
+             border-radius: 10px;
+             /* flex-direction: column; */
+            background-color: #fff;
+            box-shadow: 1px 1px 10px 2px black;
+        }
+         .image{
+            height: 200px;
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+         }
+         .product-image{
+            height: 100%;
+            width: 100%;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+         }
+         .details{
+            padding-left: 20px;
+            padding-right: 20px;
+            margin-bottom: 20px;
+         }
+         .btn{
+            display: flex;
+         }
+         .buy-now{
+            display: inline;
+            margin-left:40px;
+            /* padding: 10px; */
+         }
+         .add-to-cart{
+            display: inline;
+            margin-left: 50px;
+            /* padding: 10px; */
+         }
+         .buy-btn{
+            /* background-color: #ff5733; */
+            background-color: black;
+            color: white;
+            /* padding: 10px 20px; */
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+         }
+         .Add-btn{
+            /* background-color: #33c1ff; */
+            background-color: black;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-left: 20px;
+            padding-right: 20px;
+            border: none;           
+            border-radius: 5px; 
+            cursor: pointer;
+            font-size: 16px;
+         }
+    </style>
+
+</head>
+<body>
+    
+    <div class="card"> 
+    <div class="image"> <img src="./photo-1505740420928-5e560c06d30e.jpeg" alt=" product image" class="product-image"></div>
+    <div class="details"> <h2>ANC Bluetooth Headphone</h2> 
+
+    <p style="padding-left: 10px; padding-right: 10px; text-align: center;
+    ">Bluetooth On Ear Headphone with Mic, Dual 3.5mm Connectors, Adjustable Headband for PC Computers/Laptop</p>
+
+    <h3 style="text-align: center;">$999</h3></div>
+
+
+    <div class="btn">
+    <div class="buy-now"><button type="button" class="buy-btn">
+        <!-- <img src="./cart.png" alt="buy now" height="20px" width="20px" style="margin-right: 10px;;"> -->
+        <p>Buy Now </p>
+
+    </button>
+    </div>
+    <div class="add-to-cart">
+        <button type="button" class="Add-btn">
+            <!-- <img src="./plus.png" alt="add-to-cart" height="20px" width="20px" style=" margin-right: 10px;"> -->
+            <p>Add to Cart</p>
+        </button>
+        </div>
+        </div>
+    </div>
+
+</body>
+</html>

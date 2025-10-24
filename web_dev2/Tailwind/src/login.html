@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page with Tailwind</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body class="bg-gray-900 flex justify-center items-center min-h-screen">
+    <div class="bg-amber-100 rounded-lg p-8 shadow-lg max-w-sm w-full">
+        <h1 class="text-center text-4xl mb-4 font-bold">Login</h1>
+        <form>
+            <div class="mb-4">
+            <label class="block text-sm mb-2 font-medium"
+            for="Name">Name</label>
+            <input
+             class="bg-amber-50 w-full px-2 py-2 hover:ring-2 hover:ring-blue-400"
+            type="text" placeholder="Enter your name">
+            </div>
+            <div class="mb-4">
+                <label class="block text-sm mb-2 font-medium"
+                for="Password">Password</label>
+                <input 
+                class="bg-amber-50 w-full px-2 py-2 hover:ring-2 hover:ring-blue-400"
+                 type="password" name="" id="" placeholder="Enter your password">
+            </div>
+            <button class="w-full bg-amber-600 py-2 font-bold rounded-md hover:bg-amber-500 shadow-2xl text-white hover:text-amber-50" type="submit">Login</button>
+        </form>
+    </div>
+    
+</body>
+</html>

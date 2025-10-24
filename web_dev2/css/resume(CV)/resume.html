@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume</title>
+    <style>
+        *{
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 0;
+            margin: 0;
+            line-height: 1.6;
+        }
+        body{
+            background-color: #f8f7f2;
+        }
+        .Container{
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            grid-template-rows: 200px 100vh
+        }
+        .blocks{
+            border: 1px solid black;
+        }
+        .profile-photo{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            
+        }
+        .image{
+            height: 150px;
+            width: 150px;
+            border-radius: 50%;
+            margin: 20px;
+            border: 1px solid black;
+        }
+        .Name{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .Full-name{
+            font-weight: bold;
+            font-size: 38px;
+
+        }
+
+    </style>
+</head>
+<body>
+    <div class="Container">
+       <div class="blocks ">
+        <div class="image">
+            <img class="profile-photo" src="#" alt="#">
+        </div>
+       </div>
+       <div class="blocks Name">
+        <div class="Full-name"> Full Name </div>
+       </div>
+        <div class="blocks">
+          <div class="grid-about">
+          <div class="contact">
+            <div class="contact-details">phone number and email</div>
+            <div class="address">living address</div>
+           </div>
+           <div class="skills">Skills</div>
+           <div class="personal-details">date of birth and marital status</div>
+           </div>
+           
+        </div>
+        <div class="blocks">
+            <div class="grid-main">
+                <div class="Objective">Objective</div>
+                <div class="Experience"> Experience</div>
+                <div class=" Education"> Education</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
