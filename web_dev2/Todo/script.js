@@ -7,6 +7,14 @@ tasks.forEach((element) => {
   renderTask(element);
 });
 
+/*enter functionality if we enter then it will take li direct 
+without even clicking the add task button.*/
+inputTask.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    addTaskButton.click();
+  }
+});
+
 addTaskButton.addEventListener("click", () => {
   const task = inputTask.value.trim();
   if (task === "") return;
@@ -27,9 +35,18 @@ function renderTask(task) {
   const taskText = task.text;
   console.log(task);
   const li = document.createElement("li");
-  li.innerHTML = `
-  <span>${taskText}</span>
-  <button>delete</button>`;
+
+  const span = document.createElement("span");
+  span.textContent = taskText;
+  /**changed innerchild logic for security purpose and added
+   * textcontnt its more secure. */
+  const deleteBtn = document.createElement("button");
+  deleteBtn.textContent = "delete";
+  li.appendChild(span);
+  li.appendChild(deleteBtn);
+  // li.innerHTML = `
+  // <span>${taskText}</span>
+  // <button>delete</button>`;
   todoList.appendChild(li);
   if (task.completed) {
     li.classList.add("completed");
