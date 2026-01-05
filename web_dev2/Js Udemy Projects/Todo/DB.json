@@ -1,0 +1,12 @@
+[
+  { "id": "1767083318442", "text": "figma basics", "completed": false },
+  { "id": "1767083328937", "text": "ui/ux notes read", "completed": false },
+  { "id": "1767083350191", "text": "T and TV design", "completed": false },
+  { "id": "1767083360813", "text": "JS Projects", "completed": false },
+  { "id": "1767083377952", "text": "Udemy JS Test", "completed": false },
+  {
+    "id": "1767083395971",
+    "text": "Python whole from multithreading to whole",
+    "completed": false
+  }
+]

@@ -1,0 +1,85 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #121212;
+}
+
+.container {
+  /* display: flex;
+    justify-content: center; */
+  width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 1px 2px 1px 2px black;
+  background-color: #1e1e1e;
+}
+
+h1,
+h2,
+h3 {
+  color: antiquewhite;
+  text-align: center;
+  padding: 10px;
+}
+
+#expense-form {
+  display: flex;
+  /* padding: 20px; */
+  /* justify-content: space-between; */
+  gap: 5px;
+}
+
+#Expense-name,
+#Amount {
+  padding: 10px;
+  background-color: #333333;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: aliceblue;
+}
+
+#Add-Expense-btn {
+  background-color: #6200ea;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: antiquewhite;
+  border-radius: 3px;
+}
+
+#Add-Expense-btn:hover {
+  background-color: #3700b3;
+}
+
+#show-expenses li {
+  display: flex;
+  justify-content: space-between;
+  background-color: #333333;
+  border-radius: 4px;
+  align-items: center;
+  padding: 10px;
+  color: antiquewhite;
+}
+
+#show-expenses button {
+  background-color: #ea0033;
+  border: none;
+  outline: none;
+  padding: 10px;
+  color: antiquewhite;
+  border-radius: 3px;
+}
+
+#show-expenses button:hover {
+  background-color: #bb062d;
+}

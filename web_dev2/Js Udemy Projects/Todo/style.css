@@ -7,11 +7,33 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
   background-color: #fff;
+}
+
+.header{
   display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100px;
+}
+.flex-container{
+    display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+
+ a {
+  color: rgb(12, 86, 86);
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+a:hover {
+  color: rgb(6, 121, 121);
+  text-decoration: underline;
+}
+
 
 h1 {
   font-size: 24px;

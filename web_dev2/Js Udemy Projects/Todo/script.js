@@ -1,8 +1,16 @@
+/**
+ * first selected all the imp element with queryselector like inputbox, add task button, and list for todo
+ */
 const inputTask = document.querySelector("#input-box");
 const addTaskButton = document.querySelector("#add-task-btn");
 const todoList = document.querySelector("#todo-list");
 
+// this will take task from local storage and store in task array
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+// console.log(tasks);
+// const trial = tasks
+// console.log(trial);
+
 tasks.forEach((element) => {
   renderTask(element);
 });
@@ -15,6 +23,7 @@ inputTask.addEventListener("keydown", (e) => {
   }
 });
 
+// this will add task to the task list and local storage with formatted type and also render the task
 addTaskButton.addEventListener("click", () => {
   const task = inputTask.value.trim();
   if (task === "") return;
@@ -31,6 +40,9 @@ addTaskButton.addEventListener("click", () => {
   // console.log(tasks[0].text);
 });
 
+/* this is render task functionality which will render the output
+ this will take task from addtaskbtn and taking text from it and displaying in list which consist a span and delete button.
+*/
 function renderTask(task) {
   const taskText = task.text;
   console.log(task);
@@ -52,6 +64,7 @@ function renderTask(task) {
     li.classList.add("completed");
   }
   li.addEventListener("click", (e) => {
+    // ignoring delete button for toggoling
     if (e.target.tagName === "BUTTON") {
       return;
     }
@@ -69,6 +82,7 @@ function renderTask(task) {
   });
 }
 
+// this function is used to save task array into local storage of browser
 function saveToLocalStorage() {
   localStorage.setItem("tasks", JSON.stringify(tasks));
 }
