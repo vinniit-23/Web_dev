@@ -1,43 +1,59 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const Canvas = document.getElementById("Canvas");
-  const ctx = Canvas.getContext("2d");
+  const canvas = document.getElementById("Canvas");
+  const ctx = canvas.getContext("2d");
+  let fruitColor = ["orange", "yellow", "green", "white", "skyblue"];
+  let snakeLength = [];
+  const gridSize = 10;
+  const rows = canvas.height / gridSize; // 60
+  const cols = canvas.width / gridSize;
 
-  Canvas.width = 400;
-  Canvas.height = 400;
+  function generateFood() {
+    let xAxis, yAxis;
+    xAxis = Math.floor(Math.random() * cols) * gridSize;
+    yAxis = Math.floor(Math.random() * rows) * gridSize;
 
-  let Snake = [];
-
-  const gridSize = 20;
-  const snakeHead = {
-    x: 4,
-    y: 3,
-  };
-  Snake.unshift(snakeHead);
-
-  function moveSnake() {
-    ctx.clearRect(0, 0, Canvas.width, Canvas.height);
-
-    let newHead = {
-      x: 8,
-      y: 7,
-    };
-    Snake.unshift(newHead);
-    console.log(Snake);
-    ctx.fillRect(
-      Snake[0].x * gridSize,
-      Snake[0].y * gridSize,
-      gridSize,
-      gridSize,
-    );
+    return { x: xAxis, y: yAxis };
   }
-  // requestAnimationFrame(moveSnake);
-  setTimeout(moveSnake, 1000);
+  let snakeFood = generateFood();
+  // console.log(snakeFood.x);
+  // console.log(snakeFood.y);
+  ctx.fillStyle = fruitColor[Math.floor(Math.random() * fruitColor.length)];
+  ctx.fillRect(snakeFood.x, snakeFood.y, gridSize, gridSize);
 
-  ctx.fillRect(
-    Snake[0].x * gridSize,
-    Snake[0].y * gridSize,
-    gridSize,
-    gridSize,
-  );
-  // moveSnake()
+  function generateSnake() {
+    let xAxis, yAxis;
+    xAxis = Math.floor(Math.random() * (cols - 2)) * gridSize;
+    yAxis = Math.floor(Math.random() * (rows - 2)) * gridSize;
+    return { x: xAxis, y: yAxis };
+  }
+  let generatedSnake = generateSnake();
+  // console.log(generatedSnake);
+  console.log(snakeLength.push(generatedSnake));
+  console.log(snakeLength);
+  console.log(snakeLength[0].x);
+  console.log(snakeLength[0].y);
+  let snakeBody = { x: snakeLength[0].x + gridSize, y: snakeLength[0].y };
+  console.log(snakeLength.push(snakeBody));
+  let snaketail = { x: snakeLength[1].x + gridSize, y: snakeLength[1].y };
+  console.log(snakeLength.push(snaketail));
+  ctx.fillStyle = "red";
+
+  for (let index = 0; index < snakeLength.length; index++) {
+    if (snakeLength[index].x !== 0 && snakeLength[index].y !== 0) {
+      ctx.fillRect(
+        snakeLength[index].x,
+        snakeLength[index].y,
+        gridSize,
+        gridSize,
+      );
+      // ctx.fillRect(generatedSnake.x, generatedSnake.y, gridSize, gridSize);
+      // ctx.fillRect(generatedSnake.x, generatedSnake.y, gridSize, gridSize);
+      // ctx.fillRect(generatedSnake.x, generatedSnake.y, gridSize, gridSize);
+
+
+
+      
+      // todo: tomorrow review the code and also check the functional part like how they are working and the make function to move the snake 
+    }
+  }
 });

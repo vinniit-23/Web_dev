@@ -4,6 +4,7 @@
 const inputTask = document.querySelector("#input-box");
 const addTaskButton = document.querySelector("#add-task-btn");
 const todoList = document.querySelector("#todo-list");
+const prioritySelection = document.querySelector("#priority");
 
 // this will take task from local storage and store in task array
 let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
@@ -31,6 +32,7 @@ addTaskButton.addEventListener("click", () => {
     id: Date.now().toString(),
     text: task,
     completed: false,
+    priority: prioritySelection.value,
   };
   tasks.push(newTask);
   // console.log(tasks);
@@ -50,11 +52,22 @@ function renderTask(task) {
 
   const span = document.createElement("span");
   span.textContent = taskText;
+  const prioritySpan = document.createElement("span");
+  prioritySpan.textContent = task.priority;
+  if (task.priority === "low") {
+    prioritySpan.style.color = "#AAFF00";
+  } else if (task.priority === "medium") {
+    prioritySpan.style.color = "#FFBF00";
+  } else if (task.priority === "high") {
+    prioritySpan.style.color = "#FF3131";
+  }
+
   /**changed innerchild logic for security purpose and added
    * textcontnt its more secure. */
   const deleteBtn = document.createElement("button");
   deleteBtn.textContent = "delete";
   li.appendChild(span);
+  li.appendChild(prioritySpan);
   li.appendChild(deleteBtn);
   // li.innerHTML = `
   // <span>${taskText}</span>

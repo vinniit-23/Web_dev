@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -16,8 +16,25 @@
       <div class="container">
         <h1>To-Do list</h1>
         <div class="input-container">
-          <input type="text" placeholder="Add new Task..." id="input-box" />
-          <button id="add-task-btn">Add Task</button>
+          <div class="inputBox">
+            <input type="text" placeholder="Add new Task..." id="input-box" />
+            <button id="add-task-btn">Add Task</button>
+          </div>
+          <div class="selectionBox">
+            <!-- <label for="priority">Priority</label> -->
+            <h4>Priority</h4>
+            <select id="priority">
+              <option value="default">Default</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+            </select>
+          </div>
+        </div>
+        <div class="infoBox">
+          <span>Task Name</span>
+          <span>Priority</span>
+          <span>Action</span>
         </div>
         <ul id="todo-list"></ul>
       </div>

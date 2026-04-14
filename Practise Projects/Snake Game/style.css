@@ -1,6 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
 #Canvas {
-  border: 10px solid #ab5a02;
-  background-color: #fff;
+  border: 5px solid red;
+  background-color: black;
+  /* box-shadow: 2px 2px 5px red; */
 }
 body {
   display: flex;
@@ -8,4 +15,9 @@ body {
   align-items: center;
   height: 100vh;
   background-color: #1a1a1a;
+  flex-direction: column;
+  gap: 20px;
+}
+h1 {
+  color: aliceblue;
 }
