@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("Canvas");
   const ctx = canvas.getContext("2d");
-  let fruitColor = ["orange", "yellow", "green", "white", "skyblue"];
+  // let fruitColor = ["orange", "yellow", "green", "white", "skyblue"];
+  let fruitColor = ["yellow", "white"];
   let snakeLength = [];
   const gridSize = 10;
   const rows = canvas.height / gridSize; // 60
-  const cols = canvas.width / gridSize;
+  const cols = canvas.width / gridSize; //100
 
   function generateFood() {
     let xAxis, yAxis;
@@ -26,17 +27,18 @@ document.addEventListener("DOMContentLoaded", () => {
     yAxis = Math.floor(Math.random() * (rows - 2)) * gridSize;
     return { x: xAxis, y: yAxis };
   }
-  let generatedSnake = generateSnake();
-  // console.log(generatedSnake);
-  console.log(snakeLength.push(generatedSnake));
-  console.log(snakeLength);
-  console.log(snakeLength[0].x);
-  console.log(snakeLength[0].y);
+  let snakeHead = generateSnake();
+  // // console.log(generatedSnake);
+  // console.log(snakeLength.push(snakeHead));
+  // console.log(snakeLength);
+  // console.log(snakeLength[0].x);
+  // console.log(snakeLength[0].y);
+  snakeLength.push(snakeHead);
   let snakeBody = { x: snakeLength[0].x + gridSize, y: snakeLength[0].y };
   console.log(snakeLength.push(snakeBody));
   let snaketail = { x: snakeLength[1].x + gridSize, y: snakeLength[1].y };
   console.log(snakeLength.push(snaketail));
-  ctx.fillStyle = "red";
+  ctx.fillStyle = "#171123";
 
   for (let index = 0; index < snakeLength.length; index++) {
     if (snakeLength[index].x !== 0 && snakeLength[index].y !== 0) {
@@ -50,10 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // ctx.fillRect(generatedSnake.x, generatedSnake.y, gridSize, gridSize);
       // ctx.fillRect(generatedSnake.x, generatedSnake.y, gridSize, gridSize);
 
-
-
-      
-      // todo: tomorrow review the code and also check the functional part like how they are working and the make function to move the snake 
+      // todo: tomorrow review the code and also check the functional part like how they are working and the make function to move the snake
     }
   }
 });
