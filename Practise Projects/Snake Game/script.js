@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const canvas = document.getElementById("Canvas");
   const ctx = canvas.getContext("2d");
   const startGameButton = document.getElementById("Start-Game-Button");
+  const stopGameButton = document.getElementById("Stop-Game-Button");
   let fruitColor = ["yellow", "white"];
   let snakeLength = [
     { x: 50, y: 50 },
@@ -12,7 +13,37 @@ document.addEventListener("DOMContentLoaded", () => {
   const rows = canvas.height / gridSize; // 60
   const cols = canvas.width / gridSize; //100
 
+  console.log(snakeLength);
+
   startGameButton.addEventListener("click", () => {
+    function drawSnake(snakeLengthArray) {
+      ctx.fillStyle = "#171123";
+      for (let index = 0; index < snakeLengthArray.length; index++) {
+        ctx.fillRect(
+          snakeLengthArray[index].x,
+          snakeLengthArray[index].y,
+          gridSize,
+          gridSize,
+        );
+      }
+    }
+
+    function snakeMovement(snakeLengthArray) {
+      let snakeHead = snakeLengthArray[0];
+      let newHead;
+      if (snakeHead.x <= canvas.width && snakeHead.y <= canvas.height) {
+        newHead = { x: snakeHead.x + gridSize, y: snakeHead.y };
+        // console.log(snakeLengthArray);
+        checkCollision(snakeLengthArray);
+        foodEaten(snakeLengthArray);
+        return newHead;
+      }
+      // else {
+      //   checkCollision(snakeLengthArray);
+      //   return (newHead = { x: 0, y: snakeHead.y });
+      // }
+    }
+
     function generateFood() {
       let xAxis, yAxis;
       xAxis = Math.floor(Math.random() * cols) * gridSize;
@@ -28,36 +59,48 @@ document.addEventListener("DOMContentLoaded", () => {
       ctx.fillRect(snakeFood.x, snakeFood.y, gridSize, gridSize);
     }
     let snakeFood = generateFood();
-    drawFood(snakeFood);
+    // drawFood(snakeFood);
 
-    function snakeMovement(snakeLengthArray) {
-      let snakeHead = snakeLengthArray[0];
-      let newHead = { x: snakeHead.x + gridSize, y: snakeHead.y };
-      console.log(snakeLengthArray);
-      return newHead;
-    }
-    let newHead = snakeMovement(snakeLength);
-    snakeLength.unshift(newHead);
-    snakeLength.pop();
-
-    function drawSnake(snakeLengthArray) {
-      ctx.fillStyle = "#171123";
-      for (let index = 0; index < snakeLengthArray.length; index++) {
-        ctx.fillRect(
-          snakeLengthArray[index].x,
-          snakeLengthArray[index].y,
-          gridSize,
-          gridSize,
-        );
+    function checkCollision(snakeLengthArray) {
+      if (
+        snakeLengthArray[0].x === 0 ||
+        snakeLengthArray[0].x === 1000 ||
+        snakeLengthArray[0].y === 0 ||
+        snakeLengthArray[0].y === 600
+      ) {
+        alert("Restart the game");
       }
     }
+
+    function foodEaten(snakeLengthArray) {
+      if (
+        snakeFood.x === snakeLengthArray[0].x &&
+        snakeFood.y === snakeLengthArray[0].y
+      ) {
+        let snakeTail = snakeLengthArray.length - 1;
+        let newsnakeTail = { x: snakeTail.x + gridSize, y: snakeTail.y };
+        snakeLengthArray.push(newsnakeTail);
+        console.log(snakeLengthArray);
+      }
+    }
+
     // drawSnake(snakeLength);
     function gameLoop() {
       ctx.fillStyle = "#006992";
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-      drawFood(snakeFood);
       drawSnake(snakeLength);
+      drawFood(snakeFood);
+      let newHead = snakeMovement(snakeLength);
+      snakeLength.unshift(newHead);
+      snakeLength.pop();
+      // console.log(drawSnake(snakeLength));
     }
-    setInterval(gameLoop, 1000);
+    setInterval(gameLoop, 500);
+  });
+
+  function stop(params) {}
+
+  stopGameButton.addEventListener("click", () => {
+    stop();
   });
 });

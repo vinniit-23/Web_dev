@@ -21,7 +21,23 @@ body {
 h1 {
   color: #1f2e4d;
 }
+
+.buttons{
+  display: flex;
+  gap: 50px;
+}
+
 #Start-Game-Button {
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid;
+  background-color: #f46036;
+  color: #171123;
+  font-weight: bold;
+}
+
+#Stop-Game-Button {
   width: 120px;
   height: 40px;
   border-radius: 5px;
