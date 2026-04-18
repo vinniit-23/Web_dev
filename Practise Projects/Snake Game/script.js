@@ -12,10 +12,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const gridSize = 10;
   const rows = canvas.height / gridSize; // 60
   const cols = canvas.width / gridSize; //100
+  let xAxis, yAxis;
+  xAxis = Math.floor(Math.random() * cols) * gridSize;
+  yAxis = Math.floor(Math.random() * rows) * gridSize;
 
-  console.log(snakeLength);
+  // console.log(snakeLength);
 
-  startGameButton.addEventListener("click", () => {
+  // const getInterval =
+  function startGame() {
     function drawSnake(snakeLengthArray) {
       ctx.fillStyle = "#171123";
       for (let index = 0; index < snakeLengthArray.length; index++) {
@@ -32,10 +36,11 @@ document.addEventListener("DOMContentLoaded", () => {
       let snakeHead = snakeLengthArray[0];
       let newHead;
       if (snakeHead.x <= canvas.width && snakeHead.y <= canvas.height) {
+        foodCollision(snakeLengthArray);
+        checkCollision(snakeLengthArray);
         newHead = { x: snakeHead.x + gridSize, y: snakeHead.y };
         // console.log(snakeLengthArray);
-        checkCollision(snakeLengthArray);
-        foodEaten(snakeLengthArray);
+        // foodEaten(snakeLengthArray);
         return newHead;
       }
       // else {
@@ -44,35 +49,39 @@ document.addEventListener("DOMContentLoaded", () => {
       // }
     }
 
-    function generateFood() {
-      let xAxis, yAxis;
-      xAxis = Math.floor(Math.random() * cols) * gridSize;
-      yAxis = Math.floor(Math.random() * rows) * gridSize;
+    // function generateFood() {
+    // let xAxis, yAxis;
+    // xAxis = Math.floor(Math.random() * cols) * gridSize;
+    // yAxis = Math.floor(Math.random() * rows) * gridSize;
 
-      return { x: xAxis, y: yAxis };
-    }
+    //   return { x: xAxis, y: yAxis };
+    // }
 
     function drawFood(snakeFood) {
-      const foodColor =
-        fruitColor[Math.floor(Math.random() * fruitColor.length)];
-      ctx.fillStyle = foodColor;
-      ctx.fillRect(snakeFood.x, snakeFood.y, gridSize, gridSize);
+      const foodColor = [Math.floor(Math.random() * fruitColor.length)];
+      ctx.fillStyle = fruitColor[foodColor];
+      // ctx.fillRect(snakeFood.x, snakeFood.y, gridSize, gridSize);
+      ctx.fillRect(xAxis, yAxis, gridSize, gridSize);
     }
-    let snakeFood = generateFood();
-    // drawFood(snakeFood);
+    // let snakeFood = generateFood();
+    let snakeFood = { x: xAxis, y: yAxis };
+    drawFood(snakeFood);
 
     function checkCollision(snakeLengthArray) {
-      if (
-        snakeLengthArray[0].x === 0 ||
-        snakeLengthArray[0].x === 1000 ||
-        snakeLengthArray[0].y === 0 ||
-        snakeLengthArray[0].y === 600
-      ) {
+      let x = snakeLengthArray[0].x;
+      let y = snakeLengthArray[0].y;
+      if (x <= 0 || x >= canvas.width || y <= 0 || y >= canvas.height) {
         alert("Restart the game");
       }
+      // for (let index = 0; index < snakeLengthArray.length; index++) {
+      //   const element = snakeLengthArray[index];
+      //   if (element.x === x && element.y === y) {
+      //     alert("Restart the game");
+      //   }
+      // }
     }
 
-    function foodEaten(snakeLengthArray) {
+    function foodCollision(snakeLengthArray) {
       if (
         snakeFood.x === snakeLengthArray[0].x &&
         snakeFood.y === snakeLengthArray[0].y
@@ -95,12 +104,22 @@ document.addEventListener("DOMContentLoaded", () => {
       snakeLength.pop();
       // console.log(drawSnake(snakeLength));
     }
-    setInterval(gameLoop, 500);
+    // const refreshInterval =
+    setInterval(gameLoop, 1000);
+    // return refreshInterval;
+  }
+
+  // function stop(interval) {
+  //   clearInterval(interval);
+  // }
+
+  startGameButton.addEventListener("click", () => {
+    // getInterval();
+    startGame();
   });
 
-  function stop(params) {}
-
-  stopGameButton.addEventListener("click", () => {
-    stop();
-  });
+  // stopGameButton.addEventListener("click", () => {
+  //   stop(getInterval());
+  //   console.log("Stop button clicked");
+  // });
 });

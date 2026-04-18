@@ -22,21 +22,12 @@ h1 {
   color: #1f2e4d;
 }
 
-.buttons{
+.buttons {
   display: flex;
   gap: 50px;
 }
 
-#Start-Game-Button {
-  width: 120px;
-  height: 40px;
-  border-radius: 5px;
-  border: 2px solid;
-  background-color: #f46036;
-  color: #171123;
-  font-weight: bold;
-}
-
+#Start-Game-Button,
 #Stop-Game-Button {
   width: 120px;
   height: 40px;
@@ -45,4 +36,22 @@ h1 {
   background-color: #f46036;
   color: #171123;
   font-weight: bold;
+  cursor: pointer;
+}
+
+/* #Stop-Game-Button {
+  width: 120px;
+  height: 40px;
+  border-radius: 5px;
+  border: 2px solid;
+  background-color: #f46036;
+  color: #171123;
+  font-weight: bold;
+  cursor: pointer;
+} */
+
+#Start-Game-Button:hover,
+#Stop-Game-Button:hover {
+  background-color: #eb7959;
+  color: #171123;
 }
