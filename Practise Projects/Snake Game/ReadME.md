@@ -37,3 +37,7 @@
 
 > - Snake movement logic is set now snake is moving.
 > - if Snake eats food then it is increases but the food isn't disappearing.
+
+**DATE:- 19 Apr 2026**
+
+> - did something but mostly it is wrong run the code once and the dubug it.
