@@ -56,4 +56,52 @@ document.addEventListener("DOMContentLoaded", () => {
   let snaketail = { x: snakeLength[1].x + gridSize, y: snakeLength[1].y };
   console.log(snakeLength.push(snaketail));
   ctx.fillStyle = "#171123";
+
+  // function checkCollision(snakeLengthArray) {
+
+  //   let x = snakeLengthArray[0].x;
+  //   let y = snakeLengthArray[0].y;
+  //   if (x <= 0 || x >= canvas.width || y <= 0 || y >= canvas.height) {
+  //     alert("Restart the game");
+  //   }
+  //   // for (let index = 0; index < snakeLengthArray.length; index++) {
+  //   //   const element = snakeLengthArray[index];
+  //   //   if (element.x === x && element.y === y) {
+  //   //     alert("Restart the game");
+  //   //   }
+  //   // }
+  // }
+
+  // function foodCollision(snakeLengthArray) {
+  //   if (
+  //     snakeFood.x === snakeLengthArray[0].x &&
+  //     snakeFood.y === snakeLengthArray[0].y
+  //   ) {
+  //     // let snakeTail = snakeLengthArray[snakeLengthArray.length - 1];
+  //     let snakeTail = snakeLengthArray.length - 1;
+  //     console.log(snakeTail);
+
+  //     // let newsnakeTail = { x: snakeTail.x + gridSize, y: snakeTail.y };
+  //     // snakeLengthArray.push(newsnakeTail);
+  //     // console.log(snakeLengthArray);
+  //   }
+  // }
+
+  // function snakeMovement(snakeLengthArray) {
+  //   let snakeHead = snakeLengthArray[0];
+  //   let newHead;
+  //   if (snakeHead.x <= canvas.width && snakeHead.y <= canvas.height) {
+  //     // foodCollision(snakeLengthArray);
+  //     // checkCollision(snakeLengthArray);
+  //     checkCollision();
+  //     newHead = { x: snakeHead.x + gridSize, y: snakeHead.y };
+  //     // console.log(snakeLengthArray);
+  //     // foodEaten(snakeLengthArray);
+  //     return newHead;
+  //   }
+  //   // else {
+  //   //   checkCollision(snakeLengthArray);
+  //   //   return (newHead = { x: 0, y: snakeHead.y });
+  //   // }
+  // }
 });

@@ -16,6 +16,10 @@
 
 > Review the code and also check the functional part like how they are working. Snake is moving now work on change in snake direction and the food disappeaing.
 
+**DATE:- 21 Apr 2026**
+
+> Review the code and also check the functional part like how they are working. stop game button and display score should be done by tomorrow.
+
 <br>
 <br>
 
@@ -41,3 +45,9 @@
 **DATE:- 19 Apr 2026**
 
 > - did something but mostly it is wrong run the code once and the dubug it.
+
+**DATE:- 20 Apr 2026**
+
+> - Game is running greatly there are some bugs which have to fix like startgame function,
+> - two important things are pending one is display score second is stop game button is not working,
+> - One important thing currently when snakes collides it gives alert message but snake continue moves i have to stop it and game must me restart.
