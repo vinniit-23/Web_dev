@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const gridSize = 10;
   const rows = canvas.height / gridSize; // 60
   const cols = canvas.width / gridSize; //100
+  let isGameRunning = false;
+  let myInterval;
   let dx = +gridSize;
   let dy = 0;
   let direction;
@@ -19,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     direction = event.key;
 
     if (event.key === "ArrowUp" && dy !== +gridSize) {
-       dx = 0;
+      dx = 0;
       dy = -gridSize;
       console.log(dx);
       console.log(dy);
@@ -43,19 +45,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function startGame() {
     let score = 0;
-    // let xAxis, yAxis;
-    // xAxis = Math.floor(Math.random() * cols) * gridSize;
-    // yAxis = Math.floor(Math.random() * rows) * gridSize;
-    // let snakeFood = { x: xAxis, y: yAxis };
     function generateFood() {
       let xAxis, yAxis;
-      xAxis = Math.floor(Math.random() * cols) * gridSize;
-      yAxis = Math.floor(Math.random() * rows) * gridSize;
+      let isValid = false;
 
+      while (!isValid) {
+        // Step 1: Generate random position
+        xAxis = Math.floor(Math.random() * cols) * gridSize;
+        yAxis = Math.floor(Math.random() * rows) * gridSize;
+
+        isValid = true;
+
+        // Step 2: Check against entire snake
+        for (let i = 0; i < snakeLength.length; i++) {
+          const element = snakeLength[i];
+
+          if (element.x === xAxis && element.y === yAxis) {
+            isValid = false; // overlap found
+            break;
+          }
+        }
+      }
+      // Step 3: Return only valid position
       return { x: xAxis, y: yAxis };
     }
+
     let snakeFood = generateFood();
     const foodColor = Math.floor(Math.random() * fruitColor.length);
+
     function drawFood(snakeFood) {
       ctx.fillStyle = fruitColor[foodColor];
       ctx.fillRect(snakeFood.x, snakeFood.y, gridSize, gridSize);
@@ -102,10 +119,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function checkCollision(head) {
       if (wallCollision(head)) {
-        alert("Wall Collision happened");
+        // alert("Wall Collision happened");
+        // isGameRunning = false;
+        // clearInterval(myInterval);
+        // ctx.fillStyle = "Black";
+        // ctx.font = "24px Times New Roman ";
+        // ctx.fillText(`Game Over!`, 400, 300, 400);
+        // snakeLength = [
+        //   { x: 50, y: 50 },
+        //   { x: 40, y: 50 },
+        //   { x: 30, y: 50 },
+        // ];
+        // dx = +gridSize;
+        // dy = 0;
+        return true;
       }
       if (selfCollision(head)) {
-        alert("Self Collision happened");
+        // alert("Self Collision happened");
+        // isGameRunning = false;
+        // clearInterval(myInterval);
+        // ctx.fillStyle = "Black";
+        // ctx.font = "24px Times New Roman ";
+        // ctx.fillText(`Game Over!`, 400, 300, 400);
+        // snakeLength = [
+        //   { x: 50, y: 50 },
+        //   { x: 40, y: 50 },
+        //   { x: 30, y: 50 },
+        // ];
+        // dx = +gridSize;
+        // dy = 0;
+        return true;
       }
     }
 
@@ -122,30 +165,55 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function gameLoop() {
+      ctx.fillStyle = "#006992";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
       const head = snakeLength[0];
       let newHead = { x: head.x + dx, y: head.y + dy };
-      checkCollision(newHead);
+      if (checkCollision(newHead)) {
+        isGameRunning = false;
+        clearInterval(myInterval);
+        ctx.fillStyle = "Black";
+        ctx.font = "24px Times New Roman ";
+        ctx.fillText(`Game Over!`, 400, 300, 400);
+        return;
+      }
       snakeLength.unshift(newHead);
       if (foodCollision(newHead, snakeFood)) {
         snakeFood = generateFood();
       } else {
         snakeLength.pop();
       }
-      ctx.fillStyle = "#006992";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
       drawFood(snakeFood);
       drawSnake(snakeLength);
+      ctx.fillStyle = "white";
+
+      ctx.font = "24px Times New Roman ";
+      ctx.fillText(`Score : ${score}`, 900, 50, 50);
       console.log(snakeLength);
     }
     // const refreshInterval =
-    setInterval(gameLoop, 500);
-    // return refreshInterval;
+    myInterval = setInterval(gameLoop, 500);
+    // return myInterval;
   }
 
   startGameButton.addEventListener("click", () => {
-     startGame();
+    if (isGameRunning === true) {
+      return;
+    } else {
+      isGameRunning = true;
+      snakeLength = [
+        { x: 50, y: 50 },
+        { x: 40, y: 50 },
+        { x: 30, y: 50 },
+      ];
+      dx = +gridSize;
+      dy = 0;
+      startGame();
+    }
   });
 
   stopGameButton.addEventListener("click", () => {
+    isGameRunning = false;
+    clearInterval(myInterval);
   });
 });

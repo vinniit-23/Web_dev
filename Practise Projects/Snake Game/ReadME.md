@@ -51,3 +51,7 @@
 > - Game is running greatly there are some bugs which have to fix like startgame function,
 > - two important things are pending one is display score second is stop game button is not working,
 > - One important thing currently when snakes collides it gives alert message but snake continue moves i have to stop it and game must me restart.
+
+**DATE:- 21 Apr 2026**
+
+> SNAKE GAME IS COMPLETED NOW IF I WANT THEN CHANGE SETINTERVAL TO REQUESTANIMATIONFRAME FOR SMOOTHER GAME FLOW. setInterval to requestAnimationFrame
