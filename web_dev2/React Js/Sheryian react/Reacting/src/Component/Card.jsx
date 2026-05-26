@@ -22,6 +22,13 @@ const data = [
   },
 ];
 
+let ProductInCart = 0;
+
+const AddToCart = () => {
+  ProductInCart++;
+  alert(`Product is added to cart ${ProductInCart}`);
+}
+
 function Card() {
   return (
     <div className=" w-full h-screen bg-zinc-300 flex gap-8 justify-center items-center">
@@ -40,10 +47,18 @@ function Card() {
           <div className="w-full px-3 py-2">
             <h3 className="font-semibold text-xl ">{elem.title}</h3>
             <p className="text-xs text-zinc-500 mt-2">{elem.description}</p>
+          </div>
+          <div className="flex gap-2 m-3">
             <button
               className={`rounded  ${elem.instock ? "bg-blue-600 hover:bg-blue-500" : "bg-red-600 hover:bg-red-500"} hover:text-zinc-100 text-xs text-zinc-200 mt-3 px-3 font-semibold py-1 `}
             >
               {elem.instock ? "In Stock" : "Out Of Stock"}
+            </button>
+            <button
+             onClick={AddToCart}
+              className={`rounded  bg-slate-900 hover:bg-slate-800 hover:text-zinc-100 text-xs text-zinc-200 mt-3 px-3 font-semibold py-1 `}
+            >
+              Add To Cart
             </button>
           </div>
         </div>
