@@ -1,0 +1,112 @@
+import React, { useState } from "react";
+
+function Task() {
+  const [task, setTask] = useState(
+    () => JSON.parse(localStorage.getItem("task")) || [],
+  );
+  console.log("Task length:", task.length);
+  console.log("Task data:", task);
+  return (
+    <div>
+      {task.map((elem, index) => (
+        <ul
+          className=" h-10 m-8 rounded-full bg-amber-100 text-zinc-800"
+          key={index}
+        >
+          <li className=" flex justify-between font-bebas tracking-wider h-full items-center  mx-4 lg:text-lg text">
+            <p>{elem.TaskName}</p>
+            <p
+              className={`text-green-700`}
+            >
+              {elem.Priority}
+            </p>
+            <button
+              onClick={() => {
+                const updatedTask = task.filter((item) => item.Id !== elem.Id);
+                setTask(updatedTask);
+                localStorage.setItem("task", JSON.stringify(updatedTask));
+              }}
+              className="rounded-full px-4 py-2 bg-red-700 text-sm text-amber-100"
+            >
+              Delete
+            </button>
+          </li>
+        </ul>
+      ))}
+    </div>
+  );
+}
+
+export default Task;
+
+
+
+
+
+import React, { useState } from "react";
+
+// main.jsx or App.jsx
+
+function Todo() {
+  const [task, setTask] = useState([]);
+  const [taskName, setTaskName] = useState("");
+  const [priority, setPriority] = useState("Low");
+
+  // console.log(taskName);
+  // console.log(priority);
+
+  function SaveToLocalStorage() {
+    if (taskName.trim() === "") return;
+    let newTask = {
+      Id: Date.now().toString(),
+      TaskName: taskName.trim(),
+      Priority: priority,
+    };
+    const updatedTasks = [...task, newTask];
+
+    console.log(task);
+    setTask(updatedTasks);
+
+    localStorage.setItem("task", JSON.stringify(updatedTasks));
+  }
+
+  return (
+    <div >
+      <h1 className="text-4xl text-center font-bebas py-4  text-amber-100">
+        Todo React App
+      </h1>
+      <div className="flex justify-center m-3 gap-5">
+        <input
+          type="text"
+          placeholder="Enter Task"
+          name="task"
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
+          className="font-bebas tracking-wider border-b-cyan-600 bg-zinc-400 text-zinc-800 border-none rounded-full lg:px-72 md:px-40  px-5  py-5"
+        />
+        <div className="flex items-center gap-2  ">
+          <label className=" font-bebas text-yellow-100 ">Priority:</label>
+
+          <select
+            name="Priority"
+            className="  bg-cyan-600   text-yellow-100 rounded-full font-bold text-sm lg:px-10 py-6 "
+             value={priority}
+            onChange={(e) => setPriority(e.target.value)}
+          >
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+          </select>
+        </div>
+        <button
+          onClick={SaveToLocalStorage}
+          className=" bg-cyan-600 rounded-full py-5 lg:px-10 text-amber-100 font-bold text-sm "
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  );
+}
+
+export default Todo;

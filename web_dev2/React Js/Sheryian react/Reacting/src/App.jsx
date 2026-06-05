@@ -1,13 +1,12 @@
 import React from "react";
-import Card from "./Component/Card"
+import Carousel from "./Component/Carousel";
  
+
 function App() {
-  return (
-    <>
-    <Card/>
-    </>
-  );
   
+  return (
+    <Carousel/>
+   );
 }
 
 export default App;
