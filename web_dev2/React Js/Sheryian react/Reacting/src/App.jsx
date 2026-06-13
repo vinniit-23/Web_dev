@@ -1,35 +1,34 @@
-import React, { useState } from "react";
-import MusicCard from "./Component/MusicCard";
-import { Navbar } from "./Component/Navbar";
+import React, { useRef } from "react";
 
 function App() {
-  const data = [
-    { name: "One Love", artist: "Shubh ", image: " ", favourite: false },
-    { name: "Mexico", artist: "Karan Aujla ", image: " ", favourite: false },
-    { name: "Azul", artist: "Guru Randhawa ", image: " ", favourite: false },
-    { name: "Lover", artist: "Diljit Doshan ", image: " ", favourite: false },
-    { name: "Millionaire", artist: "Honey Singh ", image: " ", favourite: false },
-    { name: "Excuses", artist: "Ap Dillion ", image: " ", favourite: false },
-  ];
+  const name = useRef(null);
+  const email = useRef(null);
 
-  const [songData, setSongData] = useState(data);
-  
 
-  const handleEvent = (songIndex) => {
-    setSongData(songData.map((song, index) => {
-      if (index === songIndex) return { ...song, favourite: !song.favourite };
-      return song;
-    }))
+  const handleEvent = (event) => {
+    event.preventDefault()
+    console.log(name.current.value);
+    console.log(email.current.value);
+    
   }
 
   return (
-    <div className="bg-zinc-200 w-full h-screen">
-      <Navbar songData={songData} />
-      <div className="flex flex-wrap gap-10 px-40 mt-10 ">
-        {songData.map((song, index) => {
-          return <MusicCard value={song} index={index} key={index} handleEvent={handleEvent} />
-        })}
-      </div>
+    <div className=" m-10">
+      <form action="" onSubmit={handleEvent}>
+        <input
+          ref={name}
+          className="border-teal-300 border-2 px-4 py-3"
+          type="name"
+          placeholder="name"
+        />
+        <input
+          ref={email}
+          className="border-teal-300 border-2 px-4 py-3"
+          type="email"
+          placeholder="email"
+        />
+        <input className="border-teal-300 border-2 px-4 py-3" type="submit" />
+      </form>
     </div>
   );
 }
