@@ -1,36 +1,25 @@
-import React, { useRef } from "react";
-
-function App() {
-  const name = useRef(null);
-  const email = useRef(null);
+import React, { useState } from "react";
+import Cards from "./Component/Cards";
+import Form from "./Component/Form";
 
 
-  const handleEvent = (event) => {
-    event.preventDefault()
-    console.log(name.current.value);
-    console.log(email.current.value);
-    
-  }
+export default function App() {
+  const [users, setUsers] = useState([])
+  console.log(users);
+
+  const addUser = (data) => { setUsers([...users, data]) }
+  
+  const removeUser = (id) => { setUsers(users.map((item,index)=> item.index!==id))}
+  
+  
 
   return (
-    <div className=" m-10">
-      <form action="" onSubmit={handleEvent}>
-        <input
-          ref={name}
-          className="border-teal-300 border-2 px-4 py-3"
-          type="name"
-          placeholder="name"
-        />
-        <input
-          ref={email}
-          className="border-teal-300 border-2 px-4 py-3"
-          type="email"
-          placeholder="email"
-        />
-        <input className="border-teal-300 border-2 px-4 py-3" type="submit" />
-      </form>
+
+    <div className="w-full h-screen bg-zinc-200 flex justify-center items-center">
+      <div className=" mx-auto ">
+        <Cards users={users} removeUser={removeUser} />
+        <Form addUser={addUser} />
+      </div>
     </div>
   );
 }
-
-export default App;
