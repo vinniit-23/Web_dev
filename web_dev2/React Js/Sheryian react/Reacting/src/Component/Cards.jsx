@@ -1,9 +1,9 @@
 import React from "react";
 import Card from "./Card";
- 
+
 function Cards({ users, removeUser }) {
   return (
-    <div className="w-full flex gap-4 overflow-auto  justify-center">
+    <div className="w-full flex gap-4 h-auto overflow-auto  justify-center">
       {users.map((user, index) => {
           return (
             <Card
@@ -14,9 +14,9 @@ function Cards({ users, removeUser }) {
             />
           );
       })}
-    </div>
+
+     </div>
   );
 }
 
-
-export default Cards; 
+export default Cards;

@@ -5,11 +5,15 @@ import Form from "./Component/Form";
 
 export default function App() {
   const [users, setUsers] = useState([])
-  console.log(users);
+  // console.log(users);
 
-  const addUser = (data) => { setUsers([...users, data]) }
+  const addUser = (data) => {
+    setUsers([...users, data]) 
+    console.log(data);
+    
+  }
   
-  const removeUser = (id) => { setUsers(users.map((item,index)=> item.index!==id))}
+  const removeUser = (id) => { setUsers(()=>users.filter((item,index)=> index!==id))}
   
   
 

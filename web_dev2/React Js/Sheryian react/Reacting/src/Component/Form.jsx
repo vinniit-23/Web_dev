@@ -1,22 +1,21 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-
+ import { useForm } from "react-hook-form";
 
 function Form({ addUser }) {
-  const { register, handleSubmit, reset } = useForm()
+  const { register, reset, handleSubmit } = useForm()
   
-  const handleFormSubmit = (data) => {
-    addUser(data)
-    reset()
+
+  const handleSubmitUser = (data) => {
+    addUser(data);
+    reset();
   }
 
 
   return (
     <div className="flex mt-10 justify-center">
       <form
-        action=""
-        className="flex justify-center items-center gap-10 "
-        onSubmit={handleFormSubmit}
+         className="flex justify-center items-center gap-10 "
+        onSubmit={handleSubmit(handleSubmitUser)}
       >
         <input
           type="name"

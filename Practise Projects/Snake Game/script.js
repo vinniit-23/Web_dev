@@ -23,23 +23,23 @@ document.addEventListener("DOMContentLoaded", () => {
     if (event.key === "ArrowUp" && dy !== +gridSize) {
       dx = 0;
       dy = -gridSize;
-      console.log(dx);
-      console.log(dy);
+      // console.log(dx);
+      // console.log(dy);
     } else if (event.key === "ArrowDown" && dy !== -gridSize) {
       dx = 0;
       dy = +gridSize;
-      console.log(dx);
-      console.log(dy);
+      // console.log(dx);
+      // console.log(dy);
     } else if (event.key === "ArrowLeft" && dx !== +gridSize) {
       dx = -gridSize;
       dy = 0;
-      console.log(dx);
-      console.log(dy);
+      // console.log(dx);
+      // console.log(dy);
     } else if (event.key === "ArrowRight" && dx !== -gridSize) {
       dx = +gridSize;
       dy = 0;
-      console.log(dx);
-      console.log(dy);
+      // console.log(dx);
+      // console.log(dy);
     }
   });
 
